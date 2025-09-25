@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scheduler</title>
+        <br>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link href="../static/CSS/signupstyler.css" rel="stylesheet">
+    </head>
+<body>
+    <div class="container">
+        <br>
+        <div>
+            <h2 class="bordered">User Login</h2>
+        </div>
+        <div>
+            <br>
+            <form method="post">
+                <div class="inp">
+                    <label for="emailid">Registered Email ID: </label>
+                    <input type="text" id="emailid" name="emailid">
+                </div>
+
+                <div class="inp">
+                    <label for="password">Password: </label>
+                    <input type="text" id="password" name="password">
+                </div>
+                <div class="error">
+                    Please check your credentials.
+                </div>
+                <div class="inp">
+                    <input class="btn btn-primary" type="submit" value="Login">
+                </div>
+            </form>
+            <a href="/signup/">Create account?</a>
+        </div>
+        <br>
+    </div>
+</body>
+</html>

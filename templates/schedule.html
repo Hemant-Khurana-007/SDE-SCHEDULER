@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduler</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/CSS/dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div>
+            <ul>
+                <li>Welcome {{username}}</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li class="centerelem"><a href="/schedule">Schedule</a></li>
+                <li class="centerelem"><a href="/prompt">Generate</a></li>
+            </ul>
+            
+        </div>
+        <div>
+            <ul>
+                <li style="text-align: center;"><a href="/">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin: auto; margin-top: 6%;">
+        SDE Scheduler
+    </div>
+    {% for day in schedule.study_schedule %}
+        <div class="container2" style="margin-bottom: 10px;">
+            <p style="font-size: 25px; color: aliceblue; width: 100%; background-color: black;">Day {{ day.day }}</p>
+            <p style="display: flex; justify-content: left; font-size: 22px; padding-left: 10px;">Tasks:</p>
+            {% for task in day.tasks %}
+                <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px; font-size: 20px; margin-bottom: 10px;">
+                    <div style="margin-left: 100px; width: 100px;">
+                        {{loop.index}}
+                    </div>
+                    <div style="width: 800px;">
+                        <a href="{{task.link}}" style="color: black;" onmouseover="this.style.color='green'" onmouseout="this.style.color='black'">{{task.name}}</a>
+                    </div>
+                    <div style="width: 100px;">
+                        {{task.difficulty}}
+                    </div>
+                    {%if task.stat==0%}
+                    <div>
+                        <form action="/complete/{{task.name}}">
+                            <button type="submit" class="btn btn-success">Mark Complete</button>
+                        </form>
+                    </div>
+                    {%else%}
+                    <div>
+                        <form action="/incomplete/{{task.name}}">
+                            <button type="submit" class="btn btn-danger">Mark Incomplete</button>
+                        </form>
+                    </div>
+                    {%endif%}
+            </div>
+            {%endfor%}
+        </div>
+    {%endfor%}
+</body>
+</html>

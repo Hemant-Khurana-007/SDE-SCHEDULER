@@ -1,0 +1,41 @@
+
+body{
+    background-image: url(../striver.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h2{
+    text-align: center;
+}
+.bordered{
+    border: 0px solid;
+    color: rgb(0, 0, 0);
+    border-color: black;
+}
+.container {
+    width: 40%;
+    border: 0px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.596);
+    vertical-align: middle;
+    box-shadow:2px 2px 5px rgb(96, 96, 96);
+    margin-top: 2%
+}
+.inp{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+label {
+    width: 150px;
+}
+a{
+    text-decoration-line: none;
+}
+.error{
+    margin: auto;
+    color: red;
+    margin-bottom: 15px;
+}
